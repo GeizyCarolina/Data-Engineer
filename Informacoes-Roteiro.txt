@@ -1,0 +1,63 @@
+Estudo de caso com Postgre SQL
+
+sistema gerenciador de banco de dados objeto relacional SGBD
+
+- serve para banco de dados relacional
+- open source
+
+
+# ROTEIRO
+
+cd /etc/yum.repos.d/
+sudo rm *.* 
+
+# dowload do rpm do postgres instalar postgresql 11
+
+cd ~
+
+sudo yum install http://download.postgresql.org/pub/repos/yum/reporpms/EL-6-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+confirma com = y 
+
+# atualizar o arquivo de configuracao (abrir em modo de edicao)
+
+cd /etc/yum.repos.d/
+ls
+sudo gedit /etc/yum.repos.d/pgdg-redhat-all.repo
+
+modo de edicao - substituir os links que tem https para http
+salvou e fechou
+
+sudo yum update
+confirma com = y
+
+#instalar pacotes servidor opcionais
+
+sudo yum install postgresql11-server
+
+# iniciar o postgre
+
+sudo service postgresql-11 initdb
+sudo chkconfig postgresql-11 on
+sudo service postgresql-11 start
+
+############## INSTALAÇÃO FEITA ############## 
+
+# entrar no postgre
+sudo -u postgres psql
+
+# criar um banco 
+create database ed;
+
+#listar os bancos 
+\list
+
+#entrar no banco
+\c ed;
+
+#iniciar a execução dos scripts na pasta Relacional 1 até 6
+\i /home/cloudera/Desktop/Udemy/Engenheiro-de-dados/Relacional/1.CreateTable.sql
+
+
+
+
+
